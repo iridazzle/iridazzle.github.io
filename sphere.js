@@ -11,7 +11,7 @@ document.body.appendChild(renderer.domElement);
 
 let geo = {
    n: 7, //number of objects => n^3
-   r: 3, //max raduis
+   r: 1.3, //max raduis
    m: 4 //margins
 };
 
@@ -20,7 +20,7 @@ let dias = [], maxLength = (new THREE.Vector3(1, 1, 1)).multiplyScalar(geo.n * (
 for (i = 0; i < geo.n; i++) {
    for (j = 0; j < geo.n; j++) {
       for (k = 0; k < geo.n; k++) {
-            dia = makeDia(i, j, k);
+            dia = makeDia(getR(geo.n), getR(geo.n), getR(geo.n));
             dias.push(dia);
       };
    };
@@ -64,11 +64,11 @@ function animate() {
    requestAnimationFrame(animate);
 
    const time = Date.now() * 0.001;
-   const l = maxLength * 0.7;
+   const l = maxLength * 0.2;
    let origin = new THREE.Vector3();
-   origin.x = Math.sin(time * 0.9) * l;
-   origin.y = Math.cos(time * 1.2) * l;
-   origin.z = Math.cos(time * 0.7) * l;
+   origin.x = Math.sin(time * 0.4) * l;
+   origin.y = Math.cos(time * 0.5) * l;
+   origin.z = Math.cos(time * 0.6) * l;
 
    dias.forEach((dia) => {
       let dv = dia.destination.clone().add(origin).sub(dia.position);

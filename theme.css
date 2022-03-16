@@ -64,8 +64,10 @@ canvas {
    display: block;
    margin: 0;
    padding: 25px 100px;
-   background: var(--primary-75);
+   background: var(--primary-50);
    text-align: center;
+   -webkit-backdrop-filter: blur(8px);
+   backdrop-filter: blur(8px);
 }
 
 ::-webkit-scrollbar {
@@ -194,10 +196,12 @@ a:hover {
    border-radius: 50px;
    font-size: 1.33em;
    border-style: none;
-   background: var(--primary-50);
+   background: var(--secondary-50);
    transition: 0.3s;
    padding: 10px;
    margin: 10px;
+   -webkit-backdrop-filter: blur(5px);
+   backdrop-filter: blur(5px);
 }
 
 .wide-btn:hover {
